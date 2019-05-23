@@ -30,5 +30,25 @@ char word[10];
 char word[10] = {'H', 'e', 'l', 'l', 'o'};
 char word[10] = "Hello";  // print with: printf("%c", word[i]) or printf("%c", *(word + i));
 const char* word = "Hello"  // print with: printf("%s", word);
-
 ```
+
+## Keywords
+
+### Static
+Static variables in a function
+```
+// Allocated for the lifetime of the program
+// If function is called several times, the value of the variable carried through
+void f() {
+  static int count = 0;
+  std::cout << count << std::endl;
+  count++;
+}
+
+int main() {
+  f();  // 0
+  f();  // 1
+}
+```
+
+Static variables in a class
