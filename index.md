@@ -51,7 +51,75 @@ int main() {
 }
 ```
 
-Static variables in a class
+### Virtual
+A virtual function is declared within a base class and is re-defined (overriden) by a derived class. When you refer to a derived class object using a pointer or reference to the base class, you can call a virtual function for that object and execute the derived class' version of the function.
+
+```
+class base {
+public:
+  virtual void print() {
+    cout << "print base" << endl;
+   }
+   
+  void show() {
+    cout << "show base" << endl;
+  }
+};
+
+class derived : public base {
+public:
+  void print() {
+    cout << "print derived" << endl;
+  }
+  
+  void show() {
+    cout << "show derived" << endl;
+  }
+};
+
+int main() {
+  base *bptr;
+  derived d;
+  bptr = &d;
+  
+  // virtual function, binded at runtime
+  bptr->print();
+  
+  // non-virtual function, binded at compile time
+  bptr->show();
+}
+```
+
+output:
+
+```
+print derived
+show base
+```
+Using the override keyword in the derived class' function will cause a compiler error if the two functions' signatures do not exactly match. Think of this keyword as saying "This function MUST override the base class' function".
+
+```
+class base {
+public:
+  virtual void func() {
+    cout << "Hello" << endl;
+  }
+};
+
+class derived : public base {
+public:
+  // Add override to the signature to throw an error
+  void func(int a) {
+    cout << "Hello, I'm derived" << endl;
+  }
+};
+
+int main() {
+  base b;
+  derived d;
+  cout << "Compiled successfully" << endl;
+}
+```
 
 ### Git
 
