@@ -144,3 +144,19 @@ Commit files. Add `-a` to add all tracked files for committing. Add `-m <message
 ```
 git commit
 ```
+### Const/Char/* Permutations
+
+#### const char*
+
+Pointer to a constant character. You cannot change the value of the constant character but you can change where the pointer is pointing.
+
+```
+char a = 'A';
+char b = 'B';
+const char* ptr = &a;
+
+*ptr = b;  // illegal, can't change A to B
+ptr = &b;  // legal, can change ptr to point to B
+```
+
+#### char *const
