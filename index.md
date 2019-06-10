@@ -51,6 +51,12 @@ int main() {
 }
 ```
 
+Static methods in a class and static data members in a class.
+
+```
+Belong to the class rather than a single instatiation. Use ':::'
+```
+
 ### Virtual
 A virtual function is declared within a base class and is re-defined (overriden) by a derived class. When you refer to a derived class object using a pointer or reference to the base class, you can call a virtual function for that object and execute the derived class' version of the function.
 
